@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能噪声监测管理系统</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- 顶部标题栏 -->
+        <header class="app-header">
+            <h1>智能噪声监测管理系统</h1>
+            <div class="user-info">
+                <span id="username"></span>
+                <button id="logout-btn" onclick="logout()">退出</button>
+            </div>
+        </header>
+        
+        <!-- 主体内容区 -->
+        <div class="app-body">
+            <!-- 左侧导航 -->
+            <nav class="sidebar">
+                <ul class="nav-menu">
+                    <li><a href="#dashboard" onclick="navigate('dashboard')">系统首页</a></li>
+                    <li><a href="#points" onclick="navigate('points')">点位管理</a></li>
+                    <li><a href="#realtime" onclick="navigate('realtime')">实时监测</a></li>
+                    <li><a href="#analysis" onclick="navigate('analysis')">数据分析</a></li>
+                    <li><a href="#alerts" onclick="navigate('alerts')">预警管理</a></li>
+                    <li><a href="#history" onclick="navigate('history')">历史查询</a></li>
+                    <li><a href="#reports" onclick="navigate('reports')">报告生成</a></li>
+                    <li><a href="#settings" onclick="navigate('settings')">系统设置</a></li>
+                </ul>
+            </nav>
+            
+            <!-- 右侧内容区 -->
+            <main class="content-area">
+                <div id="page-content">
+                    <!-- 动态加载页面内容 -->
+                    <div class="welcome-message">
+                        <h2>欢迎使用智能噪声监测管理系统</h2>
+                        <p>请选择左侧菜单开始使用系统功能</p>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    
+    <script src="js/api-client.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/router.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

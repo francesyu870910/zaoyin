@@ -1,0 +1,29 @@
+{
+  "name": "noise-monitoring-system",
+  "version": "1.0.0",
+  "description": "智能噪声监测管理系统 - 环保部门专用噪声污染监测平台",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "noise-monitoring",
+    "environmental-protection",
+    "pollution-detection",
+    "monitoring-system"
+  ],
+  "author": "Environmental Protection Department",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "sqlite3": "^5.1.6",
+    "cors": "^2.8.5",
+    "express-session": "^1.17.3",
+    "bcryptjs": "^2.4.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

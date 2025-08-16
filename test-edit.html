@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试编辑功能</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ddd; }
+        .success { color: green; }
+        .error { color: red; }
+        button { padding: 10px 15px; margin: 5px; }
+    </style>
+</head>
+<body>
+    <h1>监测点位编辑功能测试</h1>
+    
+    <div class="test-section">
+        <h3>测试步骤：</h3>
+        <ol>
+            <li>启动服务器：<code>node app.js</code></li>
+            <li>访问系统：<a href="http://localhost:3002" target="_blank">http://localhost:3002</a></li>
+            <li>使用账户：admin / admin123 登录</li>
+            <li>进入"点位管理"页面</li>
+            <li>点击"添加点位"按钮，添加一个测试点位</li>
+            <li>点击新添加点位的"编辑"按钮</li>
+            <li>修改点位信息并保存</li>
+            <li>验证修改是否成功</li>
+        </ol>
+    </div>
+    
+    <div class="test-section">
+        <h3>编辑功能特性：</h3>
+        <ul>
+            <li>✅ 点击编辑按钮自动填充表单</li>
+            <li>✅ 表单验证（经纬度范围、阈值合理性）</li>
+            <li>✅ 支持修改所有字段（名称、位置、坐标、阈值、状态）</li>
+            <li>✅ 保存后自动刷新列表</li>
+            <li>✅ 友好的成功/错误提示</li>
+            <li>✅ 删除前确认对话框</li>
+        </ul>
+    </div>
+    
+    <div class="test-section">
+        <h3>API接口测试：</h3>
+        <button onclick="testGetPoint()">测试获取点位详情</button>
+        <button onclick="testUpdatePoint()">测试更新点位</button>
+        <div id="test-results"></div>
+    </div>
+    
+    <script>
+        async function testGetPoint() {
+            try {
+                const response = await fetch('/api/points/1');
+                const data = await response.json();
+                document.getElementById('test-results').innerHTML = 
+                    `<div class="success">获取点位成功：${JSON.stringify(data, null, 2)}</div>`;
+            } catch (error) {
+                document.getElementById('test-results').innerHTML = 
+                    `<div class="error">获取点位失败：${error.message}</div>`;
+            }
+        }
+        
+        async function testUpdatePoint() {
+            try {
+                const updateData = {
+                    name: '测试编辑点位',
+                    location: '测试编辑位置',
+                    latitude: 39.9042,
+                    longitude: 116.4074,
+                    threshold_day: 60,
+                    threshold_night: 50,
+                    status: 'active'
+                };
+                
+                const response = await fetch('/api/points/1', {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(updateData)
+                });
+                
+                const data = await response.json();
+                document.getElementById('test-results').innerHTML = 
+                    `<div class="success">更新点位成功：${JSON.stringify(data, null, 2)}</div>`;
+            } catch (error) {
+                document.getElementById('test-results').innerHTML = 
+                    `<div class="error">更新点位失败：${error.message}</div>`;
+            }
+        }
+    </script>
+</body>
+</html>
