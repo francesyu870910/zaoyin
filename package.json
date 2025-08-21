@@ -1,7 +1,7 @@
 {
   "name": "noise-monitoring-system",
   "version": "1.0.0",
-  "description": "智能噪声监测管理系统 - 环保部门专用噪声污染监测平台",
+  "description": "环境噪声监测管理系统 - 环保部门专用噪声污染监测平台",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",

@@ -1,5 +1,5 @@
 @echo off
-echo 正在启动智能噪声监测管理系统...
+echo 正在启动环境噪声监测管理系统...
 echo.
 
 REM 检查Node.js是否安装

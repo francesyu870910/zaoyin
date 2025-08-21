@@ -1,0 +1,8 @@
+pointsRes {success: true, data: Array(15)}
+router.js:667 alertsRes {success: true, data: {…}}
+router.js:668 realtimeRes {success: true, data: Array(0)}
+charts.js:14 Chart.js 加载完成
+router.js:666 pointsRes {success: true, data: Array(15)}
+router.js:667 alertsRes {success: true, data: {…}}
+router.js:668 realtimeRes {success: true, data: Array(0)}
+VM238:1 Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently
